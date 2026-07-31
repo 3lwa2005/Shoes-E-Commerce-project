@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Layout from './Components/Layout'
 import Headerpart from './Components/Headerpart'
+import Review from './Components/Review'
 
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
     
     <Layout>
       <Headerpart/>
+      <Review/>
     </Layout>
   </>
   )
