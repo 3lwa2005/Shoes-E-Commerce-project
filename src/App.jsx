@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Layout from './Components/Layout'
+import Headerpart from './Components/Headerpart'
 
 
 function App() {
@@ -9,7 +10,7 @@ function App() {
   <>
     
     <Layout>
-      <div>BODY</div>
+      <Headerpart/>
     </Layout>
   </>
   )
