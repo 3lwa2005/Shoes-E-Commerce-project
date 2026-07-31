@@ -1,11 +1,17 @@
 import { useState } from 'react'
+import Layout from './Components/Layout'
 
 
 function App() {
   
 
   return (
-  <div ></div>
+  <>
+    
+    <Layout>
+      <div>BODY</div>
+    </Layout>
+  </>
   )
 }
 
