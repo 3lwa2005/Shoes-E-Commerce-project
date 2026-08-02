@@ -1,11 +1,12 @@
 import { HiSearch, HiOutlineShoppingCart, HiMenu } from 'react-icons/hi'
+import { Link } from 'react-router-dom'
 function NavBar() {
   const links = [
-    { label: 'Home', href: '#home' },
-    { label: 'Shop', href: '#shop' },
-    { label: 'Collection', href: '#collection' },
-    { label: 'Customize', href: '#customize' },
-    { label: 'Dashboard', href: '#dashboard' },
+    { label: 'Home', href: '/' },
+  { label: 'Shop', href: '/shop' },
+  { label: 'Collection', href: '/collection' },
+  { label: 'Customize', href: '/customize' },
+  { label: 'Dashboard', href: '/admin' },
   ]
 
   return (
@@ -15,13 +16,13 @@ function NavBar() {
       <div className="flex items-center gap-8">
         <div className="flex gap-6">
           {links.map(({ label, href }) => (
-            <a
+            <Link
               key={label}
-              href={href}
+              to={href}
               className="text-sm font-normal hover:text-gray-500 transition-colors"
             >
               {label}
-            </a>
+            </Link>
           ))}
         </div>
 

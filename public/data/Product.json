@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "name": "Slick formal sneaker shoe",
+    "price": 2999,
+    "oldPrice": 4998,
+    "category": "men",
+    "image": "images/products/shoe1.jpg",
+    "timesSold": 342,
+    "isNew": true
+  },
+  {
+    "id": 2,
+    "name": "Slick casual sneaker shoe",
+    "price": 3999,
+    "oldPrice": 4999,
+    "category": "men",
+    "image": "images/products/shoe2.jpg",
+    "timesSold": 528,
+    "isNew": true
+  },
+  {
+    "id": 3,
+    "name": "Slick sneaker shoe",
+    "price": 2499,
+    "oldPrice": 4999,
+    "category": "women",
+    "image": "images/products/shoe3.jpg",
+    "timesSold": 190,
+    "isNew": false
+  },
+  {
+    "id": 4,
+    "name": "Slick sneaker shoe",
+    "price": 2999,
+    "oldPrice": 4300,
+    "category": "women",
+    "image": "images/products/shoe4.jpg",
+    "timesSold": 410,
+    "isNew": true
+  },
+  {
+    "id": 5,
+    "name": "Slick trendy sneaker shoe",
+    "price": 2799,
+    "oldPrice": 4999,
+    "category": "women",
+    "image": "images/products/shoe5.jpg",
+    "timesSold": 615,
+    "isNew": false
+  },
+  {
+    "id": 6,
+    "name": "Slick canvas shoe",
+    "price": 1999,
+    "oldPrice": 4599,
+    "category": "boy",
+    "image": "images/products/shoe6.jpg",
+    "timesSold": 275,
+    "isNew": false
+  },
+  {
+    "id": 7,
+    "name": "Running sport shoe",
+    "price": 3999,
+    "oldPrice": 5999,
+    "category": "boy",
+    "image": "images/products/shoe7.jpg",
+    "timesSold": 98,
+    "isNew": true
+  },
+  {
+    "id": 8,
+    "name": "Running sport shoe",
+    "price": 3999,
+    "oldPrice": 5999,
+    "category": "girl",
+    "image": "images/products/shoe8.jpg",
+    "timesSold": 462,
+    "isNew": false
+  },
+  {
+    "id": 9,
+    "name": "Light canvas shoe",
+    "price": 1799,
+    "oldPrice": 3200,
+    "category": "girl",
+    "image": "images/products/shoe9.jpg",
+    "timesSold": 334,
+    "isNew": true
+  },
+  {
+    "id": 10,
+    "name": "Comfy school shoe",
+    "price": 1499,
+    "oldPrice": 2500,
+    "category": "child",
+    "image": "images/products/shoe10.jpg",
+    "timesSold": 720,
+    "isNew": false
+  },
+  {
+    "id": 11,
+    "name": "Soft sole toddler shoe",
+    "price": 999,
+    "oldPrice": 1800,
+    "category": "child",
+    "image": "images/products/shoe11.jpg",
+    "timesSold": 505,
+    "isNew": true
+  },
+  {
+    "id": 12,
+    "name": "Classic white sneaker",
+    "price": 3499,
+    "oldPrice": 5499,
+    "category": "men",
+    "image": "images/products/shoe12.jpg",
+    "timesSold": 812,
+    "isNew": false
+  }
+]

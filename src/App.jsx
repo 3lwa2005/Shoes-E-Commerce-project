@@ -1,19 +1,17 @@
-import { useState } from 'react'
-import Layout from './Components/Layout'
-import Headerpart from './Components/Headerpart'
-import Review from './Components/Review'
-
-
+import { Routes, Route } from 'react-router-dom'
+import Layout from './components/Layout'
+import Home from './pages/Home'
+import Admin from './pages/Admin'
 function App() {
   
 
   return (
   <>
     
-    <Layout>
-      <Headerpart/>
-      <Review/>
-    </Layout>
+    <Routes>
+      <Route path="/" element={<Layout><Home /></Layout>} />
+      <Route path="/Admin" element={<Layout><Admin /></Layout>} />
+    </Routes>
   </>
   )
 }
