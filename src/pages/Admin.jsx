@@ -12,7 +12,7 @@ function Admin() {
   const [image, setImage] = useState('')
 
   useEffect(() => {
-    fetch(`${import.meta.env.BASE_URL}data/products.json`)
+    fetch(`${import.meta.env.BASE_URL}data/Product.json`)
       .then((res) => res.json())
       .then((data) => {
         setProducts(data)
