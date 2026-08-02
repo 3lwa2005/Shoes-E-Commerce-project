@@ -7,7 +7,7 @@ function Review() {
   const [error, setError] = useState(null)
 
   useEffect(() => {
-    fetch('/data/reviews.json')
+    fetch(`${import.meta.env.BASE_URL}data/reviews.json`)
       .then((res) => {
         if (!res.ok) throw new Error('Failed to fetch reviews')
         return res.json()

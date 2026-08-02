@@ -1,3 +1,6 @@
+import shoeImage from '../assets/shoes.png';
+import Ultimate from '../assets/Ultimate.jpeg'
+
 function Headerpart(){
     return(
       <section className="relative flex min-h-[600px] overflow-hidden">
@@ -19,14 +22,14 @@ function Headerpart(){
         
         {/* Vertical ULTIMATE text */}
        <img
-  src="/src/assets/Ultimate.jpeg"
+  src={Ultimate}
   alt=""
   className="absolute left-0 top-0 h-full object-contain pointer-events-none select-none"
 />
 
         {/* Shoe image */}
         <img
-          src="/src/assets/shoes.png"
+          src={shoeImage}
           alt="Trendy StepUp Pro"
           className="relative z-10 w-4/5"
         />
