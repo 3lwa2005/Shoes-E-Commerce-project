@@ -27,7 +27,7 @@ function Review() {
 
   return (
     <section className="py-16 px-8 text-center">
-      <h2 className="text-2xl font-bold font-Poppins mb-10">— Customer Review —</h2>
+      <h2 className="text-2xl font-medium font-Poppins mb-10">— Customer Review —</h2>
 
       <div className="flex flex-wrap justify-center gap-6">
         {reviews.map((r) => (
@@ -38,10 +38,10 @@ function Review() {
   <img
     src={r.image}
     alt={r.name}
-    className="w-16 h-16 rounded-full object-cover"
+    className="w-16 h-16 object-cover"
   />
   <div>
-    <h3 className="font-semibold text-lg">{r.name}</h3>
+    <h3 className="font-medium font-Poppins text-lg">{r.name}</h3>
 
     {/* Star rating */}
     <div className="flex gap-1 my-2">
@@ -54,7 +54,7 @@ function Review() {
       ))}
     </div>
 
-    <p className="text-gray-600 text-base mt-1">{r.review}</p>
+    <p className="text-gray-600 text-base mt-1 font-Poppins font-normal">{r.review}</p>
   </div>
 </div>
         ))}

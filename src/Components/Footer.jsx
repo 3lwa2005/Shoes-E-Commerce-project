@@ -37,7 +37,7 @@ function Footer() {
           </div>
 
           <div className="space-y-6">
-            <div className="text-sm font-medium">Subscribe for news letter</div>
+            <div className="text-2xl font-normal font-inter">Subscribe for news letter</div>
             <form className="mx-auto flex w-full max-w-md items-center rounded-full bg-white px-1 py-1 text-black shadow-sm sm:max-w-none">
               <input
                 type="email"
@@ -56,7 +56,7 @@ function Footer() {
 
           <div className="space-y-4">
             <div className="text-sm font-medium">Quick Links</div>
-            <ul className="space-y-3 text-sm text-white/70">
+            <ul className="space-y-3 text-sm text-gray-300 font-poppins">
               {links.map(({ label, href }) => (
                 <li key={label}>
                   <a href={href} className="hover:text-white transition-colors">
@@ -68,7 +68,7 @@ function Footer() {
           </div>
         </div>
 
-        <div className="mt-14 border-t border-white/10 pt-6 text-center text-sm text-white/60">
+        <div className="mt-14 border-t border-white pt-6 text-center text-sm text-white">
           www.stepup.com © all rights reserved
         </div>
       </div>

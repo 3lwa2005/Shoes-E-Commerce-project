@@ -1,8 +1,10 @@
 import { HiSearch, HiOutlineShoppingCart, HiMenu } from 'react-icons/hi'
 import { Link } from 'react-router-dom'
+
+
 function NavBar() {
   const links = [
-    { label: 'Home', href: '/' },
+  { label: 'Home', href: '/' },
   { label: 'Shop', href: '/shop' },
   { label: 'Collection', href: '/collection' },
   { label: 'Customize', href: '/customize' },
@@ -10,7 +12,7 @@ function NavBar() {
   ]
 
   return (
-    <nav className="flex items-center justify-between px-8 py-4">
+    <nav className="flex items-center justify-between bg- px-8 py-4">
       <div className="font-extrabold font-Poppins text-xl">StepUp</div>
 
       <div className="flex items-center gap-8">
@@ -19,7 +21,7 @@ function NavBar() {
             <Link
               key={label}
               to={href}
-              className="text-sm font-normal hover:text-gray-500 transition-colors"
+              className="text-sm font-normal Font-poppins hover:text-gray-500 transition-colors"
             >
               {label}
             </Link>
