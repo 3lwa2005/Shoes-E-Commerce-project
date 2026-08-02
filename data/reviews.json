@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "name": "Maria Hanover",
+    "image": "/src/assets/reviewer 1 image.jpg",
+    "rating": 5,
+    "review": "Absolutely love these shoes! Super comfortable and stylish."
+  },
+  {
+    "id": 2,
+    "name": "Mike Mustanam",
+    "image": "/src/assets/reviewer 2 image.jpg",
+    "rating": 4,
+    "review": "Great quality and fast shipping. True to size."
+  }
+]
