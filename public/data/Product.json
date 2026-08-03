@@ -5,7 +5,7 @@
     "price": 2999,
     "oldPrice": 4998,
     "category": "men",
-    "image": "images/products/shoe1.jpg",
+    "image": "images/shoesimage/shoe1.png",
     "timesSold": 342,
     "isNew": true
   },
@@ -15,7 +15,7 @@
     "price": 3999,
     "oldPrice": 4999,
     "category": "men",
-    "image": "images/products/shoe2.jpg",
+    "image": "images/shoesimage/shoe2.png",
     "timesSold": 528,
     "isNew": true
   },
@@ -25,7 +25,7 @@
     "price": 2499,
     "oldPrice": 4999,
     "category": "women",
-    "image": "images/products/shoe3.jpg",
+    "image": "images/shoesimage/shoe3.png",
     "timesSold": 190,
     "isNew": false
   },
@@ -35,7 +35,7 @@
     "price": 2999,
     "oldPrice": 4300,
     "category": "women",
-    "image": "images/products/shoe4.jpg",
+    "image": "images/shoesimage/shoe4.png",
     "timesSold": 410,
     "isNew": true
   },
@@ -45,7 +45,7 @@
     "price": 2799,
     "oldPrice": 4999,
     "category": "women",
-    "image": "images/products/shoe5.jpg",
+    "image": "images/shoesimage/shoe5.png",
     "timesSold": 615,
     "isNew": false
   },
@@ -55,7 +55,7 @@
     "price": 1999,
     "oldPrice": 4599,
     "category": "boy",
-    "image": "images/products/shoe6.jpg",
+    "image": "images/shoesimage/shoe1.png",
     "timesSold": 275,
     "isNew": false
   },
@@ -65,7 +65,7 @@
     "price": 3999,
     "oldPrice": 5999,
     "category": "boy",
-    "image": "images/products/shoe7.jpg",
+    "image": "images/shoesimage/shoe2.png",
     "timesSold": 98,
     "isNew": true
   },
@@ -75,7 +75,7 @@
     "price": 3999,
     "oldPrice": 5999,
     "category": "girl",
-    "image": "images/products/shoe8.jpg",
+    "image": "images/shoesimage/shoe3.png",
     "timesSold": 462,
     "isNew": false
   },
@@ -85,7 +85,7 @@
     "price": 1799,
     "oldPrice": 3200,
     "category": "girl",
-    "image": "images/products/shoe9.jpg",
+    "image": "images/shoesimage/shoe4.png",
     "timesSold": 334,
     "isNew": true
   },
@@ -95,7 +95,7 @@
     "price": 1499,
     "oldPrice": 2500,
     "category": "child",
-    "image": "images/products/shoe10.jpg",
+    "image": "images/shoesimage/shoe5.png",
     "timesSold": 720,
     "isNew": false
   },
@@ -105,7 +105,7 @@
     "price": 999,
     "oldPrice": 1800,
     "category": "child",
-    "image": "images/products/shoe11.jpg",
+    "image": "images/shoesimage/shoe1.png",
     "timesSold": 505,
     "isNew": true
   },
@@ -115,7 +115,7 @@
     "price": 3499,
     "oldPrice": 5499,
     "category": "men",
-    "image": "images/products/shoe12.jpg",
+    "image": "images/shoesimage/shoe2.png",
     "timesSold": 812,
     "isNew": false
   }
