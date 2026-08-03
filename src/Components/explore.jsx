@@ -30,7 +30,7 @@ function Explore() {
           </button>
 
           <div className="mt-10 flex flex-wrap items-center gap-4">
-            {['images/products/shoe7.jpg', 'images/products/shoe8.jpg', 'images/products/shoe9.jpg'].map((thumb, index) => (
+            {[`images/shoesimage/shoe1.png`, `images/shoesimage/shoe2.png`, `images/shoesimage/shoe3.png`].map((thumb, index) => (
               <div key={index} className="rounded-3xl border border-white/30 bg-white/90 p-3 shadow-[0_20px_40px_rgba(0,0,0,0.12)]">
                 <img
                   src={`${import.meta.env.BASE_URL}${thumb}`}
