@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
-import { FiHeart, FiArrowRight } from 'react-icons/fi'
-
+import { FiHeart } from 'react-icons/fi'
+import { HiArrowUpRight } from 'react-icons/hi2'
 const categories = ['men', 'women', 'boy', 'child','girl']
 
 function Selling() {
@@ -27,10 +27,10 @@ function Selling() {
   return (
     <section className="mx-auto max-w-6xl px-6 py-16 sm:px-8">
       <div className="text-center">
-        <div className="mx-auto mb-6 flex items-center justify-center gap-5 text-sm uppercase tracking-[0.25em] text-slate-500">
-          <span className="block h-px w-16 bg-slate-300" />
+        <div className=" mb-6 flex items-center justify-center gap-5 text-xl uppercase tracking-[0.25em] text-black">
+          <span className="block h-px w-16 bg-black" />
           Best Selling
-          <span className="block h-px w-16 bg-slate-300" />
+          <span className="block h-px w-16 bg-black" />
         </div>
 
         <div className="mb-12 flex flex-wrap justify-center gap-4">
@@ -81,7 +81,7 @@ function Selling() {
                 <span className="text-sm font-normal text-slate-400 line-through">₹ {product.oldPrice}</span>
               </div>
               <button className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-black text-white transition hover:bg-slate-800">
-                <FiArrowRight className="h-5 w-5" />
+                <HiArrowUpRight className="h-5 w-5" />
               </button>
             </div>
           </article>

@@ -4,7 +4,7 @@ function Admin() {
   const [products, setProducts] = useState([])
   const [loading, setLoading] = useState(true)
 
-  // form state
+ 
   const [name, setName] = useState('')
   const [price, setPrice] = useState('')
   const [oldPrice, setOldPrice] = useState('')
@@ -21,11 +21,15 @@ function Admin() {
       .catch(() => setLoading(false))
   }, [])
 
+  function generateId() {
+  return Math.floor(Math.random() * 1_000_000) + 13
+}
+
   function handleAddProduct(e) {
     e.preventDefault()
 
     const newProduct = {
-      id: Date.now(),           // temporary unique id
+      id: generateId(),        
       name,
       price: Number(price),
       oldPrice: Number(oldPrice),
@@ -37,7 +41,7 @@ function Admin() {
 
     setProducts((prev) => [...prev, newProduct])
 
-    // reset form
+    
     setName('')
     setPrice('')
     setOldPrice('')
@@ -51,7 +55,7 @@ function Admin() {
     <div className="p-8">
       <h1 className="text-2xl font-bold font-Poppins mb-6">Admin Dashboard</h1>
 
-      {/* Add Product Form */}
+     
       <form
         onSubmit={handleAddProduct}
         className="bg-gray-100 rounded-xl p-6 mb-10 grid grid-cols-2 gap-4 max-w-2xl"
@@ -105,7 +109,7 @@ function Admin() {
         </button>
       </form>
 
-      {/* Product List */}
+     
       <table className="w-full border-collapse">
         <thead>
           <tr className="text-left border-b">
