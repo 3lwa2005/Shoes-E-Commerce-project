@@ -12,11 +12,10 @@ function NavBar() {
   ]
 
   return (
-    <nav className="flex items-center justify-between bg- px-8 py-4">
-      <div className="font-extrabold font-Poppins text-xl">StepUp</div>
+    <nav className="container absolute top-0 z-20 flex items-center  px-8 py-4">
+      <div className="flex-1 flex justify-start font-extrabold font-Poppins text-2xl">StepUp</div>
 
-      <div className="flex items-center gap-8">
-        <div className="flex gap-6">
+        <div className="flex justify-center gap-6 ">
           {links.map(({ label, href }) => (
             <Link
               key={label}
@@ -28,7 +27,7 @@ function NavBar() {
           ))}
         </div>
 
-        <div className="flex items-center gap-4 text-gray-700">
+        <div className="flex-1 flex justify-end flex-right gap-4 text-gray-700">
           <button type="button" aria-label="Search" className="hover:text-gray-500 transition-colors">
             <HiSearch className="w-5 h-5" />
           </button>
@@ -39,7 +38,6 @@ function NavBar() {
             <HiMenu className="w-5 h-5" />
           </button>
         </div>
-      </div>
     </nav>
   )
 }

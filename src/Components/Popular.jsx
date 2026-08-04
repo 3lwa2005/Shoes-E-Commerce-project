@@ -7,7 +7,7 @@ function Popular() {
   const [page, setPage] = useState(0)
 
   useEffect(() => {
-    fetch(`${import.meta.env.BASE_URL}data/Product.json`)
+    fetch('https://6a722b254d741b02b1f7641e.mockapi.io/product')
       .then((res) => {
         if (!res.ok) throw new Error('Failed to fetch popular products')
         return res.json()
@@ -32,7 +32,7 @@ function Popular() {
   const visibleProducts = topSix.slice(page * itemsPerPage, page * itemsPerPage + itemsPerPage)
 
   return (
-    <section className="py-16">
+    <section className="container-fluid py-16 ">
       <div className="mx-auto flex max-w-6xl flex-col gap-10 px-6 sm:px-8 lg:flex-row lg:items-center">
         <div className="lg:w-1/3">
           <div className="mb-6 inline-flex items-center gap-3 text-sm uppercase tracking-[0.3em] font-poppins font-medium text-black">
@@ -67,9 +67,9 @@ function Popular() {
             {visibleProducts.map((product) => (
               <div
                 key={product.id}
-                className="group overflow-hidden rounded-2xl border border-slate-200 bg-white p-4 transition hover:-translate-y-1"
+                className="group overflow-hidden rounded-2xl border border-slate-200 bg-[#D9D9D926] p-4 transition hover:-translate-y-1"
               >
-                <div className="mb-4 h-40 overflow-hidden rounded-xl">
+                <div className="mb-4 h-30 overflow-hidden rounded-xl">
                   <img
                     src={product.image}
                     alt={product.name}
@@ -77,15 +77,18 @@ function Popular() {
                   />
                 </div>
 
-                <div className="flex items-center justify-between gap-3">
-                  <div>
-                    <h3 className="text-sm font-medium text-slate-800">{product.name}</h3>
-                    <span className="text-base font-bold text-slate-950">₹ {product.price}</span>
-                  </div>
-                  <button className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-slate-950 text-white transition hover:bg-slate-800">
-                    <HiArrowUpRight className="h-4 w-4" />
-                  </button>
-                </div>
+                <div className="flex flex-col gap-2">
+  <h3 className="text-sm font-medium text-slate-800">{product.name}</h3>
+
+  <div className="flex items-center justify-between">
+    <span className="text-base font-bold text-slate-950 whitespace-nowrap">
+      ₹ {product.price}
+    </span>
+    <button className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-slate-950 text-white transition hover:bg-slate-800">
+      <HiArrowUpRight className="h-4 w-4" />
+    </button>
+  </div>
+</div>
               </div>
             ))}
           </div>

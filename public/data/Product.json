@@ -94,7 +94,7 @@
     "name": "Comfy school shoe",
     "price": 1499,
     "oldPrice": 2500,
-    "category": "child",
+    "category": "girl",
     "image": "images/shoesimage/shoe5.png",
     "timesSold": 720,
     "isNew": false
@@ -104,7 +104,7 @@
     "name": "Soft sole toddler shoe",
     "price": 999,
     "oldPrice": 1800,
-    "category": "child",
+    "category": "boy",
     "image": "images/shoesimage/shoe1.png",
     "timesSold": 505,
     "isNew": true

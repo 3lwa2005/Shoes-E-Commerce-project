@@ -3,7 +3,7 @@ import Ultimate from '../assets/Ultimate.jpeg'
 
 function Headerpart(){
     return(
-      <section className="relative flex min-h-[600px] overflow-hidden">
+      <section className="container-fluid relative flex min-h-[480px] overflow-hidden">
       
       <div className="w-1/2 bg-white flex flex-col justify-center px-16">
         <h1 className="text-6xl font-extrabold font-Poppins leading-tight">
@@ -35,7 +35,7 @@ function Headerpart(){
         />
 
         
-        <div className="absolute bottom-12 right-16 text-right z-10">
+        <div className="absolute bottom-12 text-start ">
           <h3 className="text-2xl font-bold font-Poppins">Trendy StepUp Pro</h3>
           <p className="text-gray-500 text-lg">₹ 3999.00</p>
         </div>

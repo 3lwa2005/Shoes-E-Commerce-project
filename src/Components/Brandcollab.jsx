@@ -12,17 +12,17 @@ function Brandcollab() {
   ]
 
   return (
-    <section className="bg-black border-y py-4">
-      <div className="mx-auto flex max-w-6xl flex-wrap gap-5 sm:px-8">
+    <section className="bg-black h-32 overflow-hidden border-y ">
+      <div className="mx-auto flex h-full max-w-6xl items-center justify-between px-6 sm:px-8">
         {brandCollabData.map((brand) => (
           <div
             key={brand.id}
-            className="flex h-12 min-w-[160px] items-center justify-center "
+            className="flex items-center justify-center"
           >
             {brand.logo ? (
-              <img src={brand.logo} alt={brand.alt} className="h-20 object-contain" />
+              <img src={brand.logo} alt={brand.alt} className="h-28 w-auto object-contain" />
             ) : (
-              <span className="text-2xl font-semibold uppercase text-white">
+              <span className="text-3xl font-semibold uppercase text-white">
                 {brand.label}
               </span>
             )}
