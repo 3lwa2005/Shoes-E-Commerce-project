@@ -15,7 +15,7 @@ function Footer() {
         <div className="grid gap-12 lg:grid-cols-[1.5fr_1fr_1fr]">
           <div className="space-y-6">
             <h3 className="text-2xl font-extrabold font-poppins">StepUp</h3>
-            <p className="text-sm font-poppins font-normal text-white">
+            <p className="px-10 md:px-0 text-sm font-poppins font-normal text-white">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             </p>
             <div className="flex items-center gap-4">
@@ -38,7 +38,7 @@ function Footer() {
 
           <div className="space-y-6">
             <div className="text-2xl font-normal font-inter">Subscribe for news letter</div>
-            <form className="mx-auto flex w-full max-w-md items-center rounded-full bg-white px-1 py-1 text-black shadow-sm sm:max-w-none">
+            <form className="mx-auto flex w-full  md:max-w-md items-center rounded-full bg-white px-1 py-1 text-black shadow-sm md:max-w-none">
               <input
                 type="email"
                 placeholder="Enter Email..."
@@ -47,7 +47,7 @@ function Footer() {
               <div className="mx-2 h-8 w-px bg-slate-300/70" />
               <button
                 type="submit"
-                className="rounded-full  px-6 py-3 text-sm font-semibold text-black hover:bg-gray-900 transition"
+                className="rounded-full  px-0 md:px-6 py-3 text-sm font-semibold text-black hover:bg-gray-900 transition"
               >
                 SUBSCRIBE
               </button>

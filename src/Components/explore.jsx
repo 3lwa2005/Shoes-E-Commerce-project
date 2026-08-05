@@ -16,7 +16,7 @@ const slides = [
           />
         </div>
 
-        <div className="max-w-xl mx-auto md:mx-0 text-center md:text-left mt-0">
+        <div className="max-w-xl mx-auto md:mx-0 text-center md:text-left -mt-30 md:mt-0">
           <h2 className="text-2xl font-bold leading-tight tracking-tight md:text-3xl">
             Are you ready
             <br />
@@ -87,7 +87,7 @@ function Explore() {
 
   return (
     <div className="justify-center  px-6 sm:px-8">
-      <div className="relative w-full mx-auto mb-16 max-w-full md:max-w-screen-xl h-[420px] rounded-[16px] overflow-hidden shadow-[0_40px_80px_rgba(0,0,0,0.15)]">
+      <div className="relative w-full mx-auto mb-16 max-w-full md:max-w-screen-xl h-[420px] rounded-[16px] overflow-x-hidden shadow-[0_40px_80px_rgba(0,0,0,0.15)]">
 
         {/* Arrows */}
         <button

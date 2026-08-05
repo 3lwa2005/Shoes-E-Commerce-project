@@ -20,9 +20,9 @@ function Brandcollab() {
             className="flex items-center justify-center"
           >
             {brand.logo ? (
-              <img src={brand.logo} alt={brand.alt} className="h-28 w-auto object-contain" />
+              <img src={brand.logo} alt={brand.alt} className="h-10 md:h-28 w-auto object-contain" />
             ) : (
-              <span className="text-3xl font-semibold uppercase text-white">
+              <span className="text-lg md:text-3xl font-semibold uppercase text-white">
                 {brand.label}
               </span>
             )}
