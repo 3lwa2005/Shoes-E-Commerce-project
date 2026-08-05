@@ -12,7 +12,7 @@ const slides = [
           <img
             src={shoeImage}
             alt="StepUp style"
-            className="hidden md:block absolute bottom-0 left-1/2 -translate-x-1/2 -top-20 h-auto max-h-[450px] w-auto object-contain drop-shadow-2xl lg:left-0 lg:translate-x-0"
+            className="hidden md:block absolute bottom-0 left-1/2 -translate-x-1/2 -top-20 h-auto max-h-[468px] w-auto object-contain drop-shadow-2xl lg:left-0 lg:translate-x-0"
           />
         </div>
 
@@ -86,15 +86,38 @@ function Explore() {
   }
 
   return (
-    <div className="justify-center  px-6 sm:px-8">
-      <div className="relative w-full mx-auto mb-16 max-w-full md:max-w-screen-xl h-[420px] rounded-[16px] overflow-x-hidden shadow-[0_40px_80px_rgba(0,0,0,0.15)]">
+    <div className="justify-center px-6 sm:px-8">
+      <div className="relative w-full mx-auto mb-16 max-w-full md:max-w-screen-xl h-[420px] rounded-[16px] shadow-[0_40px_80px_rgba(0,0,0,0.15)]">
 
-        {/* Arrows */}
+        {/* BACKGROUND LAYER — only this is clipped, only colors slide here */}
+        <div className="absolute inset-0 overflow-hidden rounded-[16px]">
+          <div
+            className="flex h-full transition-transform duration-500 ease-in-out"
+            style={{
+              width: `${slideCount * 100}%`,
+              transform: `translateX(-${slideIndex * (100 / slideCount)}%)`,
+            }}
+          >
+            {slides.map((slide, index) => (
+              <div
+                key={index}
+                className="relative h-full"
+                style={{ width: `${100 / slideCount}%`, backgroundColor: slide.bg }}
+              >
+                <span className="pointer-events-none absolute inset-0 flex items-center justify-center overflow-hidden text-[100px] md:text-[300px] font-extrabold text-white/10 select-none">
+                  StepUp
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Arrows — sit above everything */}
         <button
           type="button"
           onClick={goPrev}
           aria-label="Previous slide"
-          className="absolute left-4 top-1/2 -translate-y-1/2 z-20 inline-flex h-10 w-10 items-center justify-center rounded-full text-white/70 transition hover:text-white"
+          className="absolute left-4 top-1/2 -translate-y-1/2 z-30 inline-flex h-10 w-10 items-center justify-center rounded-full text-white/70 transition hover:text-white"
         >
           <HiChevronLeft className="h-7 w-7" />
         </button>
@@ -103,13 +126,13 @@ function Explore() {
           type="button"
           onClick={goNext}
           aria-label="Next slide"
-          className="absolute right-4 top-1/2 -translate-y-1/2 z-20 inline-flex h-10 w-10 items-center justify-center rounded-full text-white/70 transition hover:text-white"
+          className="absolute right-4 top-1/2 -translate-y-1/2 z-30 inline-flex h-10 w-10 items-center justify-center rounded-full text-white/70 transition hover:text-white"
         >
           <HiChevronRight className="h-7 w-7" />
         </button>
 
         {/* Pagination dots */}
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2">
+        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2">
           {slides.map((_, index) => (
             <button
               key={index}
@@ -123,26 +146,9 @@ function Explore() {
           ))}
         </div>
 
-        {/* Sliding track */}
-        <div
-          className="flex h-full transition-transform duration-500 ease-in-out"
-          style={{
-            width: `${slideCount * 100}%`,
-            transform: `translateX(-${slideIndex * (100 / slideCount)}%)`,
-          }}
-        >
-          {slides.map((slide, index) => (
-            <section
-              key={index}
-              className="relative h-full px-6 py-8 text-white sm:px-10 lg:px-14"
-              style={{ width: `${100 / slideCount}%`, backgroundColor: slide.bg }}
-            >
-              <span className="pointer-events-none absolute inset-0 flex items-center justify-center overflow-hidden text-[100px] md:text-[300px] font-extrabold text-white/10 select-none">
-                StepUp
-              </span>
-              {slide.content}
-            </section>
-          ))}
+        {/* CONTENT LAYER — NOT clipped, so images can overflow above/below freely */}
+        <div className="relative z-10 h-full px-6 py-8 text-white sm:px-10 lg:px-14">
+          {slides[slideIndex].content}
         </div>
       </div>
     </div>

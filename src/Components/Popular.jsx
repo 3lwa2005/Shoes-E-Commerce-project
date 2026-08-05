@@ -78,17 +78,17 @@ function Popular() {
                 </div>
 
                 <div className="flex flex-col gap-2">
-  <h3 className="text-sm font-medium text-slate-800">{product.name}</h3>
+                  <h3 className="text-sm font-medium text-slate-800">{product.name}</h3>
 
-  <div className="flex items-center justify-between">
-    <span className="text-base font-bold text-slate-950 whitespace-nowrap">
-      ₹ {product.price}
-    </span>
-    <button className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-slate-950 text-white transition hover:bg-slate-800">
-      <HiArrowUpRight className="h-4 w-4" />
-    </button>
-  </div>
-</div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-base font-bold text-slate-950 whitespace-nowrap">
+                      ₹ {product.price}
+                    </span>
+                    <button className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-slate-950 text-white transition hover:bg-slate-800">
+                      <HiArrowUpRight className="h-4 w-4" />
+                    </button>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
