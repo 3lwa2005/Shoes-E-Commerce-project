@@ -1,12 +1,14 @@
 import { useEffect, useMemo, useState } from 'react'
 import { FiHeart } from 'react-icons/fi'
 import { HiArrowUpRight } from 'react-icons/hi2'
+import { GiRunningShoe } from "react-icons/gi";
 const categories = ['men', 'women', 'boy','girl']
 
 function Selling() {
   const [products, setProducts] = useState([])
   const [activeCategory, setActiveCategory] = useState('men')
   const [error, setError] = useState(null)
+  const [imageErrors, setImageErrors] = useState({})
 
   useEffect(() => {
     fetch('https://6a722b254d741b02b1f7641e.mockapi.io/product')
@@ -67,11 +69,18 @@ function Selling() {
             </button>
 
             <div className="mb-6 overflow-hidden rounded-[28px] bg-white p-6">
-              <img
-                src={product.image}
-                alt={product.name}
-                className="mx-auto h-56 w-full object-contain"
-              />
+              {imageErrors[product.id] || !product.image ? (
+                <div className="mx-auto flex h-56 w-full items-center justify-center rounded-[20px] bg-slate-100 text-slate-500">
+                  <GiRunningShoe className="h-24 w-24" />
+                </div>
+              ) : (
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  className="mx-auto h-56 w-full object-contain"
+                  onError={() => setImageErrors((prev) => ({ ...prev, [product.id]: true }))}
+                />
+              )}
             </div>
 
             <div className="mt-6">

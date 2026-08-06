@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react'
 import { FiEdit, FiTrash2 } from 'react-icons/fi'
+import { GiRunningShoe } from "react-icons/gi";
+import toast, { Toaster } from 'react-hot-toast'
 
 const API_URL = 'https://6a722b254d741b02b1f7641e.mockapi.io/product'
 
@@ -16,6 +18,8 @@ function Admin() {
   const [oldPrice, setOldPrice] = useState('')
   const [category, setCategory] = useState('men')
   const [image, setImage] = useState('')
+  const [imageError, setImageError] = useState(null)
+  const [previewImageError, setPreviewImageError] = useState(false)
 
   // Load products on mount
   useEffect(() => {
@@ -42,9 +46,35 @@ function Admin() {
     setOldPrice('')
     setCategory('men')
     setImage('')
+    setImageError(null)
+    setPreviewImageError(false)
     setEditingProduct(null)
     setSubmitError(null)
   }
+
+  function handleImageFileChange(e) {
+  const file = e.target.files[0]
+  if (!file) return
+
+  setImageError(null)
+  setPreviewImageError(false)
+
+  const maxSizeBytes = 500 * 1024
+  if (file.size > maxSizeBytes) {
+    setImageError('Image is too large. Please choose a file under 500KB.')
+    e.target.value = ''
+    return
+  }
+
+  const reader = new FileReader()
+  reader.onloadend = () => {
+    setImage(reader.result)
+  }
+  reader.onerror = () => {
+    setImageError('Failed to read the image file.')
+  }
+  reader.readAsDataURL(file)
+}
 
   function openAddForm() {
     resetForm()
@@ -58,6 +88,8 @@ function Admin() {
     setOldPrice(product.oldPrice ?? '')
     setCategory(product.category || 'men')
     setImage(product.image || '')
+    setImageError(null)
+    setPreviewImageError(false)
     setSubmitError(null)
     setIsFormOpen(true)
   }
@@ -100,6 +132,7 @@ function Admin() {
         setProducts((prev) =>
           prev.map((p) => (p.id === editingProduct.id ? updated : p))
         )
+        toast.success('Product updated')
       } else {
         // ADD — create new product
         const res = await fetch(API_URL, {
@@ -114,12 +147,14 @@ function Admin() {
 
         const created = await res.json()
         setProducts((prev) => [...prev, created])
+        toast.success('Product added')
       }
 
       closeForm()
     } catch (err) {
       console.error('Save error:', err)
       setSubmitError(err.message)
+      toast.error(err.message)
     }
   }
 
@@ -146,10 +181,12 @@ function Admin() {
 
       setProducts((prev) => prev.filter((p) => p.id !== product.id))
       setDeleteTarget(null)
+      toast.success('Product deleted')
     } catch (err) {
       console.error('Delete error:', err)
       setSubmitError('Delete failed: ' + err.message)
       setDeleteTarget(null)
+      toast.error('Delete failed')
     }
   }
 
@@ -157,6 +194,7 @@ function Admin() {
 
   return (
     <div className="p-8 pt-24">
+       <Toaster position="top-center" />
       <h1 className="text-2xl font-bold font-Poppins mb-6">Admin Dashboard</h1>
 
       <button
@@ -224,23 +262,53 @@ function Admin() {
                 <option value="girl">Girl</option>
                 <option value="child">Child</option>
               </select>
-              <input
-                type="text"
-                placeholder="Image path or URL"
-                value={image}
-                onChange={(e) => setImage(e.target.value)}
-                className="border rounded px-3 py-2 col-span-2"
-              />
+              <div className="col-span-2">
+  <label className="block text-sm text-gray-600 mb-1">
+    Upload image from your computer
+  </label>
+  <input
+    type="file"
+    accept="image/*"
+    onChange={handleImageFileChange}
+    className="border rounded px-3 py-2 w-full text-sm"
+  />
+  {imageError && (
+    <p className="mt-1 text-xs text-rose-500">{imageError}</p>
+  )}
+</div>
+
+<div className="col-span-2 flex items-center gap-3">
+  <div className="flex-1 border-t border-gray-200" />
+  <span className="text-xs text-gray-400">OR paste a path/URL</span>
+  <div className="flex-1 border-t border-gray-200" />
+</div>
+
+<input
+  type="text"
+  placeholder="Image path or URL"
+  value={image.startsWith('data:') ? '' : image}
+  onChange={(e) => {
+    setImage(e.target.value)
+    setPreviewImageError(false)
+  }}
+  className="border rounded px-3 py-2 col-span-2"
+/>
 
               {image && (
                 <div className="col-span-2">
                   <p className="text-xs text-gray-500 mb-1">Preview:</p>
-                  <img
-                    src={image.startsWith('http') ? image : `${import.meta.env.BASE_URL}${image}`}
-                    alt="Preview"
-                    className="h-24 w-24 object-cover rounded border"
-                    onError={(e) => { e.target.style.display = 'none' }}
-                  />
+                  {previewImageError ? (
+                    <div className="flex h-24 w-24 items-center justify-center rounded border bg-slate-100">
+                      <GiRunningShoe className="h-12 w-12 text-slate-500" />
+                    </div>
+                  ) : (
+                    <img
+                      src={image}
+                      alt="Preview"
+                      className="h-24 w-24 object-cover rounded border"
+                      onError={() => setPreviewImageError(true)}
+                    />
+                  )}
                 </div>
               )}
 

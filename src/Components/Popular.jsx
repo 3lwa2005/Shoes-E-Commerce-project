@@ -1,10 +1,12 @@
 import { useEffect, useMemo, useState } from 'react'
+import { GiRunningShoe } from 'react-icons/gi'
 import { HiChevronLeft, HiChevronRight, HiArrowUpRight } from 'react-icons/hi2'
 
 function Popular() {
   const [products, setProducts] = useState([])
   const [error, setError] = useState(null)
   const [page, setPage] = useState(0)
+  const [imageErrors, setImageErrors] = useState({})
 
   useEffect(() => {
     fetch('https://6a722b254d741b02b1f7641e.mockapi.io/product')
@@ -70,11 +72,18 @@ function Popular() {
                 className="group overflow-hidden rounded-2xl border border-slate-200 bg-[#D9D9D926] p-4 transition hover:-translate-y-1"
               >
                 <div className="mb-4 h-30 overflow-hidden rounded-xl">
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className="h-full w-full object-cover"
-                  />
+                  {imageErrors[product.id] || !product.image ? (
+                    <div className="flex h-full w-full items-center justify-center bg-slate-100 text-slate-500">
+                      <GiRunningShoe className="h-12 w-12" />
+                    </div>
+                  ) : (
+                    <img
+                      src={product.image}
+                      alt={product.name}
+                      className="h-full w-full object-cover"
+                      onError={() => setImageErrors((prev) => ({ ...prev, [product.id]: true }))}
+                    />
+                  )}
                 </div>
 
                 <div className="flex flex-col gap-2">
