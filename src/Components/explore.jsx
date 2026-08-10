@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { HiChevronLeft, HiChevronRight } from 'react-icons/hi2'
 import shoeImage from '../assets/shoes explore.png'
-import heroShoeImage from '../assets/shoes.png' // the shoe used in Hero.jsx
+import heroShoeImage from '../assets/shoes.png' 
 
 const slides = [
   {
@@ -89,7 +89,7 @@ function Explore() {
     <div className="justify-center px-6 sm:px-8">
       <div className="relative w-full mx-auto mb-16 max-w-full md:max-w-screen-xl h-[420px] rounded-[16px] shadow-[0_40px_80px_rgba(0,0,0,0.15)]">
 
-        {/* BACKGROUND LAYER — only this is clipped, only colors slide here */}
+        
         <div className="absolute inset-0 overflow-hidden rounded-[16px]">
           <div
             className="flex h-full transition-transform duration-500 ease-in-out"
@@ -112,7 +112,7 @@ function Explore() {
           </div>
         </div>
 
-        {/* Arrows — sit above everything */}
+        
         <button
           type="button"
           onClick={goPrev}
@@ -131,7 +131,7 @@ function Explore() {
           <HiChevronRight className="h-7 w-7" />
         </button>
 
-        {/* Pagination dots */}
+       
         <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2">
           {slides.map((_, index) => (
             <button
@@ -146,7 +146,7 @@ function Explore() {
           ))}
         </div>
 
-        {/* CONTENT LAYER — NOT clipped, so images can overflow above/below freely */}
+        
         <div className="relative z-10 h-full px-6 py-8 text-white sm:px-10 lg:px-14">
           {slides[slideIndex].content}
         </div>

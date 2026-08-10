@@ -10,8 +10,8 @@ function Admin() {
   const [loading, setLoading] = useState(true)
   const [isFormOpen, setIsFormOpen] = useState(false)
   const [submitError, setSubmitError] = useState(null)
-  const [editingProduct, setEditingProduct] = useState(null) // holds the whole product object, not just id
-  const [deleteTarget, setDeleteTarget] = useState(null) // product pending delete confirmation
+  const [editingProduct, setEditingProduct] = useState(null) 
+  const [deleteTarget, setDeleteTarget] = useState(null) 
 
   const [name, setName] = useState('')
   const [price, setPrice] = useState('')
@@ -21,7 +21,7 @@ function Admin() {
   const [imageError, setImageError] = useState(null)
   const [previewImageError, setPreviewImageError] = useState(false)
 
-  // Load products on mount
+
   useEffect(() => {
     loadProducts()
   }, [])
@@ -115,7 +115,7 @@ function Admin() {
 
     try {
       if (editingProduct) {
-        // EDIT — update existing product
+        
         const res = await fetch(`${API_URL}/${editingProduct.id}`, {
           method: 'PUT',
           headers: { 'Content-Type': 'application/json' },
@@ -128,13 +128,11 @@ function Admin() {
 
         const updated = await res.json()
 
-        // Update just this one product in local state — no full refetch needed
         setProducts((prev) =>
           prev.map((p) => (p.id === editingProduct.id ? updated : p))
         )
         toast.success('Product updated')
       } else {
-        // ADD — create new product
         const res = await fetch(API_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -263,74 +261,74 @@ function Admin() {
                 <option value="child">Child</option>
               </select>
               <div className="col-span-2">
-  <label className="block text-sm text-gray-600 mb-1">
-    Upload image from your computer
-  </label>
-  <input
-    type="file"
-    accept="image/*"
-    onChange={handleImageFileChange}
-    className="border rounded px-3 py-2 w-full text-sm"
-  />
-  {imageError && (
-    <p className="mt-1 text-xs text-rose-500">{imageError}</p>
-  )}
-</div>
+          <label className="block text-sm text-gray-600 mb-1">
+            Upload image from your computer
+          </label>
+          <input
+            type="file"
+            accept="image/*"
+            onChange={handleImageFileChange}
+            className="border rounded px-3 py-2 w-full text-sm"
+          />
+          {imageError && (
+            <p className="mt-1 text-xs text-rose-500">{imageError}</p>
+          )}
+        </div>
 
-<div className="col-span-2 flex items-center gap-3">
-  <div className="flex-1 border-t border-gray-200" />
-  <span className="text-xs text-gray-400">OR paste a path/URL</span>
-  <div className="flex-1 border-t border-gray-200" />
-</div>
+        <div className="col-span-2 flex items-center gap-3">
+          <div className="flex-1 border-t border-gray-200" />
+          <span className="text-xs text-gray-400">OR paste a path/URL</span>
+          <div className="flex-1 border-t border-gray-200" />
+        </div>
 
-<input
-  type="text"
-  placeholder="Image path or URL"
-  value={image.startsWith('data:') ? '' : image}
-  onChange={(e) => {
-    setImage(e.target.value)
-    setPreviewImageError(false)
-  }}
-  className="border rounded px-3 py-2 col-span-2"
-/>
+        <input
+          type="text"
+          placeholder="Image path or URL"
+          value={image.startsWith('data:') ? '' : image}
+          onChange={(e) => {
+            setImage(e.target.value)
+            setPreviewImageError(false)
+          }}
+          className="border rounded px-3 py-2 col-span-2"
+        />
 
-              {image && (
-                <div className="col-span-2">
-                  <p className="text-xs text-gray-500 mb-1">Preview:</p>
-                  {previewImageError ? (
-                    <div className="flex h-24 w-24 items-center justify-center rounded border bg-slate-100">
-                      <GiRunningShoe className="h-12 w-12 text-slate-500" />
-                    </div>
-                  ) : (
-                    <img
-                      src={image}
-                      alt="Preview"
-                      className="h-24 w-24 object-cover rounded border"
-                      onError={() => setPreviewImageError(true)}
-                    />
-                  )}
+                      {image && (
+                        <div className="col-span-2">
+                          <p className="text-xs text-gray-500 mb-1">Preview:</p>
+                          {previewImageError ? (
+                            <div className="flex h-24 w-24 items-center justify-center rounded border bg-slate-100">
+                              <GiRunningShoe className="h-12 w-12 text-slate-500" />
+                            </div>
+                          ) : (
+                            <img
+                              src={image}
+                              alt="Preview"
+                              className="h-24 w-24 object-cover rounded border"
+                              onError={() => setPreviewImageError(true)}
+                            />
+                          )}
+                        </div>
+                      )}
+
+                      <div className="col-span-2 flex justify-end gap-4">
+                        <button
+                          type="button"
+                          onClick={closeForm}
+                          className="rounded-md border border-slate-300 px-6 py-2 text-slate-700 transition hover:bg-slate-100"
+                        >
+                          Cancel
+                        </button>
+                        <button
+                          type="submit"
+                          className="rounded-md bg-black px-6 py-2 text-white transition hover:bg-slate-800"
+                        >
+                          {editingProduct ? 'Save Changes' : 'Add Product'}
+                        </button>
+                      </div>
+                    </form>
+                  </div>
                 </div>
               )}
-
-              <div className="col-span-2 flex justify-end gap-4">
-                <button
-                  type="button"
-                  onClick={closeForm}
-                  className="rounded-md border border-slate-300 px-6 py-2 text-slate-700 transition hover:bg-slate-100"
-                >
-                  Cancel
-                </button>
-                <button
-                  type="submit"
-                  className="rounded-md bg-black px-6 py-2 text-white transition hover:bg-slate-800"
-                >
-                  {editingProduct ? 'Save Changes' : 'Add Product'}
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      )}
 
       {deleteTarget && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4 py-6">
