@@ -7,6 +7,10 @@ function Popular() {
   const [error, setError] = useState(null)
   const [page, setPage] = useState(0)
   const [imageErrors, setImageErrors] = useState({})
+  const [itemsPerPage, setItemsPerPage] = useState(() => {
+    if (typeof window === 'undefined') return 3
+    return window.innerWidth >= 768 ? 3 : 1
+  })
 
   useEffect(() => {
     fetch('https://6a722b254d741b02b1f7641e.mockapi.io/product')
@@ -29,7 +33,24 @@ function Popular() {
       .slice(0, 6)
   }, [products])
 
-  const itemsPerPage = 3
+  useEffect(() => {
+    const handleResize = () => {
+      setItemsPerPage(window.innerWidth >= 768 ? 3 : 1)
+    }
+
+    handleResize()
+    window.addEventListener('resize', handleResize)
+
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
+  useEffect(() => {
+    const maxPage = Math.max(0, Math.ceil(topSix.length / itemsPerPage) - 1)
+    if (page > maxPage) {
+      setPage(maxPage)
+    }
+  }, [topSix.length, itemsPerPage, page])
+
   const pageCount = Math.max(1, Math.ceil(topSix.length / itemsPerPage))
   const visibleProducts = topSix.slice(page * itemsPerPage, page * itemsPerPage + itemsPerPage)
 
@@ -65,7 +86,7 @@ function Popular() {
             </button>
           </div>
 
-          <div className="grid gap-5 md:grid-cols-3 px-6">
+          <div className="grid gap-5 px-6 sm:grid-cols-1 md:grid-cols-3">
             {visibleProducts.map((product) => (
               <div
                 key={product.id}

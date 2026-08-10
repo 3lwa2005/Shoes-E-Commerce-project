@@ -7,6 +7,10 @@ function Review() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
   const [page, setPage] = useState(0)
+  const [itemsPerPage, setItemsPerPage] = useState(() => {
+    if (typeof window === 'undefined') return 2
+    return window.innerWidth >= 768 ? 2 : 1
+  })
 
   useEffect(() => {
     fetch(`${import.meta.env.BASE_URL}data/reviews.json`)
@@ -24,12 +28,29 @@ function Review() {
       })
   }, [])
 
-  const itemsPerPage = 2
+  useEffect(() => {
+    const handleResize = () => {
+      setItemsPerPage(window.innerWidth >= 768 ? 2 : 1)
+    }
+
+    handleResize()
+    window.addEventListener('resize', handleResize)
+
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
+  useEffect(() => {
+    const maxPage = Math.max(0, Math.ceil(reviews.length / itemsPerPage) - 1)
+    if (page > maxPage) {
+      setPage(maxPage)
+    }
+  }, [reviews.length, itemsPerPage, page])
+
   const pageCount = Math.max(1, Math.ceil(reviews.length / itemsPerPage))
 
   const visibleReviews = useMemo(() => {
     return reviews.slice(page * itemsPerPage, page * itemsPerPage + itemsPerPage)
-  }, [reviews, page])
+  }, [reviews, page, itemsPerPage])
 
   if (loading) return <p className="text-center py-16">Loading reviews...</p>
   if (error) return <p className="text-center py-16 text-red-500">{error}</p>
